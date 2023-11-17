@@ -1,0 +1,50 @@
+<oe-flat-widget [title]="'General.lights' | translate" [icon]="{name: 'oe-production', color: 'production'}">
+  <ion-row>
+    <ion-col>
+      <span>RPG {{[channelAddress]}}</span>
+    </ion-col>
+    <ion-col>
+      <span class="bgball" [ngClass]="{'bgred': channelAddress === 1, 'bggreen': channelAddress === 0, 'bgyellow': channelAddress === 2}" >
+      </span>
+
+        <oe-flat-widget-line
+        class="bgball" [ngClass]="{'bgred': channelAddress === 1, 'bggreen': channelAddress === 0, 'bgyellow': channelAddress === 2}"
+        [channelAddress]="'pvInverter0'+'Alarm_D1_Custom_Alarm'"
+        >
+      </oe-flat-widget-line>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <span>OVGR {{[channelAddress1]}}</span>
+    </ion-col>
+    <ion-col>
+      <span class="bgball" [ngClass]="{'bgred': channelAddress1 === 1, 'bggreen': channelAddress1 === 0, 'bgyellow': channelAddress1 === 2}" ></span>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <span>HW1</span>
+    </ion-col>
+    <ion-col >
+      <span class="bgball" [ngClass]="{'bgred': channelAddress === 0, 'bggreen': channelAddress === 1, 'bgyellow': channelAddress === 2}" ></span>
+      <span class="bgball" [ngClass]="{'bgred': channelAddress1 === 0, 'bggreen': channelAddress1 === 1, 'bgyellow': channelAddress1 === 2}" style="margin: 0 20px;"></span>
+
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <span>HW2</span>
+    </ion-col>
+    <ion-col>
+      <span class="bgball" [ngClass]="{'bgred': channelAddress2 === 0, 'bggreen': channelAddress2 === 1, 'bgyellow': channelAddress2 === 2}" ></span>
+      <span class="bgball" [ngClass]="{'bgred': channelAddress1 === 0, 'bggreen': channelAddress1 === 1, 'bgyellow': channelAddress1 === 2}" style="margin: 0 20px;"></span>
+
+    </ion-col>
+  </ion-row>
+</oe-flat-widget>
+
+
+
+
+

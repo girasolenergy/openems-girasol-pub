@@ -1,0 +1,39 @@
+<header></header>
+
+<ion-content>
+  <ion-grid *ngIf="widgets">
+    <ion-row>
+      <!-- Energymonitor Chart -->
+      <ng-container>
+      <ion-col size="12">
+        <lijingenergy [period]="service.historyPeriod.value" [style.height]="energyChartHeight" [meters]="meters"></lijingenergy>
+        <!-- [meterID]="meter.id"  [alias]="meter.alias"  -->
+      </ion-col>
+    </ng-container>
+      <!-- <ng-container *ngFor="let clazz of widgets.classes" [ngSwitch]="clazz">
+
+        <ion-col *ngSwitchCase="'Consumption'" size="12" size-md="6" size-lg="4" size-xl="3">
+          <consumptionWidget [period]="service.historyPeriod"></consumptionWidget>
+        </ion-col>
+
+      </ng-container> -->
+    </ion-row>
+  </ion-grid>
+
+  <!-- <ion-grid *ngIf="!isTimedataAvailable">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="8">
+        <ion-card>
+          <ion-item lines="full" color="light">
+            <ion-icon slot="start" size="large" color="warning" name="information-circle-outline"></ion-icon>
+            <ion-label class="ion-text-wrap">Historic data is not available</ion-label>
+          </ion-item>
+          <ion-card-content>
+            <p>Please setup a Timeseries provider like "Timedata InfluxDB" to record and visualize historic data.</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+</ion-content>
