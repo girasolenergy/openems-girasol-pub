@@ -1,0 +1,69 @@
+<ng-template #tplCard>
+  <ion-item lines="full" color="light">
+    <ion-icon size="large" slot="start" name="laptop-outline" color="primary"></ion-icon>
+    <ion-label>
+    Office Meters Monitor
+    </ion-label>
+    <!-- !isSameDay(period.from, period.to) || !isSameDay(period.from, period.to, period.from.getHours(), period.from.getMinutes(),period.from.getSeconds(), period.to.getHours(), period.to.getMinutes(),period.to.getSeconds()) -->
+    <ion-button  *ngIf="!checkIfToday()" (click)="exportToMeterCsv()" slot="end">
+      <ion-icon name="receipt-outline" translate>Edge.History.export</ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-list *ngIf="chartType==='line'" lines="full" [inset]="true">
+    <ion-list-header>
+      <ion-label>Meter Name</ion-label>
+      <ion-label>{{'General.consumption'|translate}} /kWh</ion-label>
+      <ion-label>{{'General.production'|translate}} /kWh</ion-label>
+    </ion-list-header>
+    <ion-item  *ngFor="let meter of meters; let i = index">
+      <ion-label>{{meter.alias}}</ion-label>
+      <ion-label>{{ getConsumptionData(i).toFixed(0) }} </ion-label>
+      <ion-label>{{ getProductionData(i).toFixed(0) }} </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ng-template>
+
+<ng-template #tplChart>
+  <!-- <ion-list  *ngIf="chartType==='bar'" lines="full" [inset]="true">
+    <ion-item *ngFor="let data of datasets[0].data; index as i" >
+      <ion-label> {{ i  + ' : ' }}</ion-label>
+      <ion-badge>{{data.toFixed(3)}} kWh</ion-badge>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="chartType==='bar'" [style.height.px]="getChartHeight()">
+    <ngx-spinner *ngIf="loading" [name]="spinnerId"></ngx-spinner>
+    <ng-container *ngIf="!loading && chartType==='bar'">
+      {{chartType}} -->
+      <!-- type: (ChartType) - indicates the type of chart, it can be: line, bar,
+           data: (ChartData<TType, TData, TLabel>) - the whole data structure to be rendered in the chart.
+           datasets: ( ChartDataset<TType, TData>[]) - Same as the datasets property of the data input.
+      -->
+      <!-- <canvas
+      baseChart
+      [datasets]="datasets"
+      [labels]="labels"
+      [options]="options"
+      [colors]="colors"
+      [chartType]="chartType">
+      </canvas>
+    </ng-container>
+  </div> -->
+</ng-template>
+
+<div class="ion-hide-sm-down">
+  <ion-card class="ion-no-padding">
+    <ng-template *ngTemplateOutlet="tplCard"></ng-template>
+    <ion-card-content>
+      <ng-template *ngTemplateOutlet="tplChart"></ng-template>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+<div class="ion-hide-sm-up">
+  <ion-card class="ion-no-padding" style="box-shadow: none !important">
+    <ng-template *ngTemplateOutlet="tplCard"></ng-template>
+  </ion-card>
+  <ng-template *ngTemplateOutlet="tplChart"></ng-template>
+</div>
