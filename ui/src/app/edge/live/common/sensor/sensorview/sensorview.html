@@ -1,0 +1,20 @@
+
+  <oe-flat-widget [title]="'General.sensors' | translate" [icon]="{name: 'oe-production', color: 'production'}">
+    <ng-container>
+
+
+        <oe-flat-widget-line
+        [name]="'General.irradiance' | translate"
+        [channelAddress]="'sensor0' + '/TotalIrradiance'"
+        [converter]="CONVERT_TO_LUX">
+      </oe-flat-widget-line>
+
+      <oe-flat-widget-line
+      [name]="'General.temperature'| translate"
+      [channelAddress]="'sensor0' + '/AmbientTemperature'"
+      [converter]="CONVERT_TO_DEGREES">
+    </oe-flat-widget-line>
+
+    </ng-container>
+ </oe-flat-widget>
+
