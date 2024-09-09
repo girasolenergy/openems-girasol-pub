@@ -1,0 +1,42 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "plugins": [
+      {
+        "name": "typescript-strict-plugin"
+      }
+    ],
+    "importHelpers": true,
+    "strict": false,
+    "target": "ES2022",
+    "module": "es2020",
+    "noImplicitOverride": true,
+    "lib": [
+      "es2022",
+      "dom"
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "paths": {
+      "buffer": [
+        "node_modules/buffer/index.js"
+      ],
+      "@my-logic/*": ["app/shared/my/logic/services*"]
+    },
+    "useDefineForClassFields": false,
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": false
+  }
+}

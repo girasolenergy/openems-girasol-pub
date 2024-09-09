@@ -1,0 +1,9 @@
+<oe-flat-widget [title]="'General.reducedEmissions' | translate" [icon]="{name: 'oe-consumption', color: 'environmental'}" class="signage-font-nowrap">
+  <ng-container >
+      <oe-flat-widget-line
+            [name]=" "
+            [channelAddress]="'_sum/ProductionActiveEnergyDaily'"
+            [converter]="CONVERT_WATT_TO_KG">
+        </oe-flat-widget-line>
+    </ng-container>
+ </oe-flat-widget>

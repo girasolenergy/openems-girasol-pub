@@ -1,0 +1,32 @@
+<header></header>
+<ion-content>
+  <ion-refresher mode="ios" slot="fixed" (ionRefresh)="handleRefresh()">
+    <ion-refresher-content refreshingSpinner="crescent" class="ion-justify-content-center"></ion-refresher-content>
+  </ion-refresher>
+  <oe-history-data-error [response]="errorResponse"></oe-history-data-error>
+  <!-- Only displayed when history allowed to be seen -->
+  <ion-grid *ngIf="isTimedataAvailable && widgets">
+    <ion-row>
+      <!-- Energymonitor Chart -->
+      <ion-col size="12">
+        <energy (setErrorResponse)="setErrorResponse($event)" [style.height]="energyChartHeight"></energy>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="!isTimedataAvailable">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="8">
+        <ion-card>
+          <ion-item lines="full" color="light">
+            <ion-icon slot="start" size="large" color="warning" name="information-circle-outline"></ion-icon>
+            <ion-label class="ion-text-wrap">Historic data is not available</ion-label>
+          </ion-item>
+          <ion-card-content>
+            <p>Please setup a Timeseries provider like "Timedata InfluxDB" to record and visualize historic data.</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
